@@ -1,7 +1,10 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
+import filmReducer from '../slices/films.slice';
 
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    filmsState: filmReducer,
+  },
 });
 
 export type AppDispatch = typeof store.dispatch;
