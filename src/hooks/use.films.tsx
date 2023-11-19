@@ -1,9 +1,10 @@
 import { useCallback, useMemo } from 'react';
 import { FilmsRepo } from '../services/api.repo';
-import { useDispatch } from 'react-redux';
-import { AppDispatch } from '../store/store';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, RootState } from '../store/store';
 import { Film } from '../models/film';
 import { loadFilmsThunk, updateFilmThunk } from '../slices/films.thunks';
+import { setCurrentFilm } from '../slices/films.slice';
 
 export function useFilms() {
   const dispatch = useDispatch<AppDispatch>();
@@ -26,8 +27,13 @@ export function useFilms() {
     }
   };
 
+  const handleDetailsPage = async (film: Film) => {
+    dispatch(setCurrentFilm(film));
+  };
+
   return {
     loadFilms,
     updateFilm,
+    handleDetailsPage,
   };
 }

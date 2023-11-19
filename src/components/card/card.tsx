@@ -1,4 +1,5 @@
-// import { useFilms } from '../../hooks/use.films';
+import { useFilms } from '../../hooks/use.films';
+import { Link } from 'react-router-dom';
 import { Film } from '../../models/film';
 import './card.scss';
 
@@ -7,18 +8,21 @@ type Props = {
 };
 
 export function Card({ film }: Props) {
-  // const { updateFilm } = useFilms();
+  const { handleDetailsPage } = useFilms();
 
   return (
     <li className="film-card">
       <div className="card-container">
         <div className="image-container">
-          <img
-            height="300"
-            width="200"
-            src={film.img}
-            alt={`imagen de ${film.name}`}
-          />
+          <Link to={'/details/' + film.id} style={{ textDecoration: 'none' }}>
+            <img
+              height="300"
+              width="200"
+              src={film.img}
+              alt={`imagen de ${film.name}`}
+              onClick={() => handleDetailsPage(film)}
+            />
+          </Link>
         </div>
         <div className="button-card-container">
           <p>{film.name}</p>

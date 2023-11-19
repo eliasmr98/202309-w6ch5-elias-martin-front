@@ -1,9 +1,9 @@
-import { List } from '../list/list';
+import { AppRoutes } from '../app.routes/app.routes';
 
 export function App() {
   return (
     <>
-      <List></List>
+      <AppRoutes></AppRoutes>
     </>
   );
 }

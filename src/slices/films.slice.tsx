@@ -5,7 +5,6 @@ import { loadFilmsThunk, updateFilmThunk } from './films.thunks';
 type FilmsState = {
   films: Film[];
   stateOption: 'idle' | 'loading' | 'error';
-  //Este estado (currentCharacter) serviría tambien para poder hacer una página de detalles.
   currentFilm: Film | null;
 };
 
