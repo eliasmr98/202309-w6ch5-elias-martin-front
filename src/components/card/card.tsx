@@ -15,6 +15,7 @@ export function Card({ film }: Props) {
       <div className="card-container">
         <div className="image-container">
           <Link to={'/details/' + film.id} style={{ textDecoration: 'none' }}>
+            <p style={{ textDecoration: 'none' }}>{film.name}</p>
             <img
               height="300"
               width="200"
@@ -22,7 +23,6 @@ export function Card({ film }: Props) {
               alt={`imagen de ${film.name}`}
               onClick={() => handleDetailsPage(film)}
             />
-            <p>{film.name}</p>
           </Link>
         </div>
       </div>
