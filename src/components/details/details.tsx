@@ -8,7 +8,12 @@ export function Details() {
         <p>{currentFilm?.name}</p>
       </div>
       <div className="image-container">
-        <img src={currentFilm?.img} alt={currentFilm?.name} />
+        <img
+          src={currentFilm?.img}
+          alt={currentFilm?.name}
+          height="300"
+          width="200"
+        />
       </div>
       <div className="info-container">
         <p>Director: {currentFilm?.director}</p>
