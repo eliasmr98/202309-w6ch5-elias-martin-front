@@ -22,10 +22,8 @@ export function Card({ film }: Props) {
               alt={`imagen de ${film.name}`}
               onClick={() => handleDetailsPage(film)}
             />
+            <p>{film.name}</p>
           </Link>
-        </div>
-        <div className="button-card-container">
-          <p>{film.name}</p>
         </div>
       </div>
     </li>
