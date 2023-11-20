@@ -1,7 +1,7 @@
 import { Film } from '../models/film';
 
 export class FilmsRepo {
-  apiUrl = 'http://localhost:3100/films';
+  apiUrl = 'http://localhost:3500/films';
 
   async getFilms(): Promise<Film[]> {
     const response = await fetch(this.apiUrl);
