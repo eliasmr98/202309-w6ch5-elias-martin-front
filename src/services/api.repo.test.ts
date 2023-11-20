@@ -24,7 +24,7 @@ describe('Given FilmsRepo class', () => {
     test('Then it should fecth data from the API and return the response', async () => {
       const mockId = 1;
       const privateData = { id: 1 } as unknown as Partial<Film>;
-      const expectedUrl = 'http://localhost:3100/films/1';
+      const expectedUrl = 'http://localhost:3500/films/1';
       const repo = new FilmsRepo();
 
       global.fetch = jest.fn().mockResolvedValue({
