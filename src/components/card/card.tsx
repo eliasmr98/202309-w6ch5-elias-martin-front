@@ -13,9 +13,14 @@ export function Card({ film }: Props) {
   return (
     <li className="film-card">
       <div className="card-container">
-        <div className="image-container">
-          <Link to={'/details/' + film.id} style={{ textDecoration: 'none' }}>
-            <p style={{ textDecoration: 'none' }}>{film.name}</p>
+        <div className="card-name-container">
+          <p className="card-name">{film.name}</p>
+        </div>
+        <div className="card-image-container">
+          <Link
+            to={'/details/' + film.id}
+            style={{ textDecoration: 'none', color: 'inherit' }}
+          >
             <img
               height="300"
               width="200"
