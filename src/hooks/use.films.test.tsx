@@ -30,7 +30,7 @@ describe('Given the useFilms hook', () => {
         return (
           <>
             <h1>Test Component</h1>
-            <button onClick={() => updateFilm(1, { name: 'godzilla' })}>
+            <button onClick={() => updateFilm('1', { name: 'godzilla' })}>
               Update
             </button>
           </>
