@@ -1,9 +1,12 @@
+import { ImgData } from '../types/img.data';
+
 export type Film = {
-  id: number;
+  id: string;
   name: string;
   producer: string;
   era: string;
   year: string;
-  img: string;
+  filmFrontImg: ImgData;
+  filmBackImg: ImgData;
   director: string;
 };

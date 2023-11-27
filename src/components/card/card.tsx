@@ -9,6 +9,10 @@ type Props = {
 
 export function Card({ film }: Props) {
   const { handleDetailsPage } = useFilms();
+  console.log('Public Id', film.filmFrontImg.publicId);
+  console.log('Url', film.filmFrontImg.url);
+  console.log('Formato', film.filmFrontImg.format);
+  console.log('Size', film.filmFrontImg.size);
 
   return (
     <li className="film-card">
@@ -24,7 +28,7 @@ export function Card({ film }: Props) {
             <img
               height="300"
               width="200"
-              src={film.img}
+              src={`http://localhost:3500/uploads/${film.filmFrontImg.publicId}`}
               alt={`imagen de ${film.name}`}
               onClick={() => handleDetailsPage(film)}
             />

@@ -7,7 +7,7 @@ export function Details() {
     <div className="details-container">
       <div className="details-image-container">
         <img
-          src={currentFilm?.img}
+          src={`http://localhost:3500/uploads/${currentFilm?.filmFrontImg.publicId}`}
           alt={currentFilm?.name}
           height="500"
           width="380"
