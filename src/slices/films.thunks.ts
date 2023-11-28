@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { FilmsRepo } from '../services/api.repo';
-import { Film } from '../models/film';
+import { FilmsRepo } from '../services/api.repo.films.ts';
+import { Film } from '../entities/film.ts';
 
 export const loadFilmsThunk = createAsyncThunk<Film[], FilmsRepo>(
   'films/load',

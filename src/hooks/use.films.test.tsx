@@ -1,11 +1,11 @@
 import { screen, render, act } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { useEffect } from 'react';
-import { FilmsRepo } from '../services/api.repo';
+import { FilmsRepo } from '../services/api.repo.films.ts';
 import { useFilms } from './use.films';
-import { Film } from '../models/film';
+import { Film } from '../entities/film.ts';
 import { userEvent } from '@testing-library/user-event';
-import { store } from '../store/store';
+import { appStore } from '../store/store';
 import { Provider } from 'react-redux';
 
 jest.mock('react', () => ({
@@ -39,7 +39,7 @@ describe('Given the useFilms hook', () => {
 
       await act(async () => {
         render(
-          <Provider store={store}>
+          <Provider store={appStore}>
             <TestComponent></TestComponent>
           </Provider>
         );

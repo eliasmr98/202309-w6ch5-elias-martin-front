@@ -1,7 +1,6 @@
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
 import './details.scss';
-import { serverUrl } from '../../config';
 
 export function Details() {
   const { currentFilm } = useSelector((state: RootState) => state.filmsState);
@@ -9,7 +8,7 @@ export function Details() {
     <div className="details-container">
       <div className="details-image-container">
         <img
-          src={serverUrl + `/uploads/${currentFilm?.filmFrontImg.publicId}`}
+          src={currentFilm?.filmFrontImg.url}
           alt={currentFilm?.name}
           height="500"
           width="380"

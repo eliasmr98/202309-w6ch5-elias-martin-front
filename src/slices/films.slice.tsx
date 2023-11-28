@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { Film } from '../models/film';
+import { Film } from '../entities/film';
 import { loadFilmsThunk, updateFilmThunk } from './films.thunks';
 
 type FilmsState = {

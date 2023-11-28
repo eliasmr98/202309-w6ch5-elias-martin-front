@@ -1,8 +1,8 @@
 import { useCallback, useMemo } from 'react';
-import { FilmsRepo } from '../services/api.repo';
+import { FilmsRepo } from '../services/api.repo.films.ts';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../store/store';
-import { Film } from '../models/film';
+import { Film } from '../entities/film.ts';
 import { loadFilmsThunk, updateFilmThunk } from '../slices/films.thunks';
 import { setCurrentFilm } from '../slices/films.slice';
 

@@ -1,5 +1,5 @@
-import { FilmsRepo } from './api.repo';
-import { Film } from '../models/film';
+import { FilmsRepo } from './api.repo.films.ts';
+import { Film } from '../entities/film.ts';
 
 describe('Given FilmsRepo class', () => {
   describe('When we instantiate it and response is ok', () => {

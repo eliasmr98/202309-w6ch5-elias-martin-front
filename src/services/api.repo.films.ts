@@ -1,5 +1,5 @@
 import { serverUrl } from '../config';
-import { Film } from '../models/film';
+import { Film } from '../entities/film';
 
 export class FilmsRepo {
   apiUrl = serverUrl + '/films';

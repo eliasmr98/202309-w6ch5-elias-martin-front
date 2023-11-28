@@ -1,4 +1,5 @@
 import { ImgData } from '../types/img.data';
+import { User } from './user';
 
 export type Film = {
   id: string;
@@ -9,4 +10,5 @@ export type Film = {
   filmFrontImg: ImgData;
   filmBackImg: ImgData;
   director: string;
+  author: User;
 };
