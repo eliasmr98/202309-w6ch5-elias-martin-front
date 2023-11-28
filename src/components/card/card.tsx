@@ -2,6 +2,7 @@ import { useFilms } from '../../hooks/use.films';
 import { Link } from 'react-router-dom';
 import { Film } from '../../models/film';
 import './card.scss';
+import { serverUrl } from '../../config';
 
 type Props = {
   film: Film;
@@ -28,7 +29,7 @@ export function Card({ film }: Props) {
             <img
               height="300"
               width="200"
-              src={`http://localhost:3500/uploads/${film.filmFrontImg.publicId}`}
+              src={serverUrl + `/uploads/${film.filmFrontImg.publicId}`}
               alt={`imagen de ${film.name}`}
               onClick={() => handleDetailsPage(film)}
             />
