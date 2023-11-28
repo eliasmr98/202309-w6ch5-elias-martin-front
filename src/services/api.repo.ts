@@ -1,7 +1,8 @@
+import { serverUrl } from '../config';
 import { Film } from '../models/film';
 
 export class FilmsRepo {
-  apiUrl = 'http://localhost:3500/films';
+  apiUrl = serverUrl + '/films';
 
   async getFilms(): Promise<Film[]> {
     const response = await fetch(this.apiUrl);
