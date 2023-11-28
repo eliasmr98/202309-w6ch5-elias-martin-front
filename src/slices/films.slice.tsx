@@ -1,10 +1,10 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { Film } from '../models/film';
+import { Film } from '../entities/film';
 import { loadFilmsThunk, updateFilmThunk } from './films.thunks';
 
 type FilmsState = {
   films: Film[];
-  stateOption: 'idle' | 'loading' | 'error';
+  stateOption: 'idle' | 'loading' | 'error'; // Esto debería llamarse filmLoadState
   currentFilm: Film | null;
 };
 
