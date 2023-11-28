@@ -22,8 +22,8 @@ describe('Given FilmsRepo class', () => {
 
   describe('When calling the update method', () => {
     test('Then it should fecth data from the API and return the response', async () => {
-      const mockId = 1;
-      const privateData = { id: 1 } as unknown as Partial<Film>;
+      const mockId = '1';
+      const privateData = { id: mockId } as unknown as Partial<Film>;
       const expectedUrl = 'http://localhost:3500/films/1';
       const repo = new FilmsRepo();
 
@@ -58,8 +58,8 @@ describe('Given FilmsRepo class', () => {
         expect(repo.getFilms()).rejects.toThrow();
       });
       test('Then method updateFilm should throw an erro', async () => {
-        const mockId = 1;
-        const filmData = { id: 1 } as unknown as Partial<Film>;
+        const mockId = '1';
+        const filmData = { id: mockId } as unknown as Partial<Film>;
         const repo = new FilmsRepo();
         await expect(repo.updateFilm(mockId, filmData)).rejects.toThrow(
           '404 Not Found'

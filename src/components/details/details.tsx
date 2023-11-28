@@ -1,24 +1,32 @@
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
+import './details.scss';
 export function Details() {
   const { currentFilm } = useSelector((state: RootState) => state.filmsState);
   return (
     <div className="details-container">
-      <div className="title-container">
-        <p>{currentFilm?.name}</p>
-      </div>
-      <div className="image-container">
+      <div className="details-image-container">
         <img
-          src={currentFilm?.img}
+          src={`http://localhost:3500/uploads/${currentFilm?.filmFrontImg.publicId}`}
           alt={currentFilm?.name}
-          height="300"
-          width="200"
+          height="500"
+          width="380"
         />
       </div>
-      <div className="info-container">
-        <p>Director: {currentFilm?.director}</p>
-        <p>Era: {currentFilm?.era}</p>
-        <p>Año: {currentFilm?.year}</p>
+      <div className="details-info-container">
+        <div className="details-name-container">
+          <p>{currentFilm?.name}</p>
+        </div>
+        <p>
+          <span className="details-bold-text">Director:</span>{' '}
+          {currentFilm?.director}
+        </p>
+        <p>
+          <span className="details-bold-text">Era:</span> {currentFilm?.era}
+        </p>
+        <p>
+          <span className="details-bold-text">Año:</span> {currentFilm?.year}
+        </p>
       </div>
     </div>
   );

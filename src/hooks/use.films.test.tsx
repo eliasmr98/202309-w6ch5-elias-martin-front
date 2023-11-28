@@ -16,7 +16,7 @@ jest.mock('react', () => ({
 describe('Given the useFilms hook', () => {
   FilmsRepo.prototype.getFilms = jest
     .fn()
-    .mockResolvedValue([{ id: 34 } as unknown as Film]);
+    .mockResolvedValue([{ id: '34' } as unknown as Film]);
 
   describe('When we run the hook inside a component', () => {
     beforeEach(async () => {
@@ -30,7 +30,7 @@ describe('Given the useFilms hook', () => {
         return (
           <>
             <h1>Test Component</h1>
-            <button onClick={() => updateFilm(1, { name: 'godzilla' })}>
+            <button onClick={() => updateFilm('1', { name: 'godzilla' })}>
               Update
             </button>
           </>
