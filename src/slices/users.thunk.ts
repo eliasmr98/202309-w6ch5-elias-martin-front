@@ -2,6 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { LoginResponse } from '../types/login.response';
 import { LoginUser } from '../entities/user';
 import { UsersRepo } from '../services/api.repo.users';
+import { LocalStorage } from '../services/local.storage';
 
 // Thunk del login
 export const loginThunk = createAsyncThunk<
@@ -9,9 +10,12 @@ export const loginThunk = createAsyncThunk<
   {
     loginUser: LoginUser;
     repo: UsersRepo;
+    userStore: LocalStorage<{ token: string }>;
   }
->('login', async ({ loginUser, repo }) => {
-  return await repo.login(loginUser);
+>('login', async ({ loginUser, repo, userStore }) => {
+  const loginResponse = await repo.login(loginUser);
+  userStore.set({ token: loginResponse.token });
+  return loginResponse;
 });
 
 // Thunk del login with token
@@ -20,7 +24,10 @@ export const loginTokenThunk = createAsyncThunk<
   {
     token: string;
     repo: UsersRepo;
+    userStore: LocalStorage<{ token: string }>;
   }
->('loginWithToken', async ({ token, repo }) => {
-  return await repo.loginWithToken(token);
+>('loginWithToken', async ({ token, repo, userStore }) => {
+  const loginResponse = await repo.loginWithToken(token);
+  userStore.set({ token: loginResponse.token });
+  return loginResponse;
 });
