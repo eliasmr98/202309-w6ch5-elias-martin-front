@@ -3,7 +3,7 @@ export class LocalStorage<T> {
 
   get() {
     const initialData = localStorage.getItem(this.storeName);
-    if (!initialData) throw new Error('Invalid store name');
+    if (!initialData) return null;
     return JSON.parse(initialData) as T;
   }
 

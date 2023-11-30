@@ -12,14 +12,11 @@ export class UsersRepo {
     return response.json();
   }
 
-  async register(newUser: Partial<User>): Promise<User> {
+  async createUser(newUser: FormData): Promise<User> {
     const url = this.apiUrl + '/register';
     const response = await fetch(url, {
       method: 'POST',
-      body: JSON.stringify(newUser),
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      body: newUser,
     });
     if (!response.ok)
       throw new Error(response.status + ' ' + response.statusText);
