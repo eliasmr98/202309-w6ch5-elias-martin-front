@@ -17,6 +17,11 @@ export function UserButtons() {
     makeImageURL(loggedUser?.avatar?.publicId, 50);
 
   const { logout } = useUsers();
+
+  const dialogs = [
+    ...document.querySelectorAll('dialog'),
+  ] as HTMLDialogElement[];
+
   return (
     <section>
       {!loggedUser && (

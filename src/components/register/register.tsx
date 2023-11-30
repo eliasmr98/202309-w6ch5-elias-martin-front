@@ -17,8 +17,13 @@ export function Register({ closeModal }: Props) {
     register(formData);
     setHasRegister(true);
     setTimeout(() => {
-      closeModal();
+      handleCloseOk();
     }, 4000);
+  };
+
+  const handleCloseOk = () => {
+    setHasRegister(false);
+    closeModal();
   };
 
   return (
@@ -40,7 +45,7 @@ export function Register({ closeModal }: Props) {
           <label htmlFor="avatar">Avatar</label>
           <input type="file" name="avatar" id="avatar" />
           <button type="submit">Registrar</button>
-          <button type="button" onClick={closeModal}>
+          <button type="button" onClick={handleCloseOk}>
             Cancelar
           </button>
         </form>
