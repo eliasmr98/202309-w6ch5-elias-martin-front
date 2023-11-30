@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { AppRoutes } from '../app.routes/app.routes';
-import { Header } from '../header/header';
 import { useUsers } from '../../hooks/use.users';
+import { Header } from '../header/header';
 
 export function App() {
   const { loginWithToken } = useUsers();

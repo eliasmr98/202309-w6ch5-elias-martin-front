@@ -2,12 +2,9 @@ import { SyntheticEvent } from 'react';
 import { LoginUser } from '../../entities/user';
 import { useUsers } from '../../hooks/use.users';
 import './login.scss';
+import { Link } from 'react-router-dom';
 
-type Props = {
-  closeModal: () => void;
-};
-
-export function Login({ closeModal }: Props) {
+export function Login() {
   const { login } = useUsers();
 
   const handleSubmit = (event: SyntheticEvent) => {
@@ -20,7 +17,6 @@ export function Login({ closeModal }: Props) {
     };
 
     login(loginUser);
-    closeModal();
   };
   return (
     <>
@@ -30,9 +26,9 @@ export function Login({ closeModal }: Props) {
         <input type="password" name="passwd" placeholder="password" />
         <div className="login-buttons-container">
           <button type="submit">Login</button>
-          <button type="button" onClick={closeModal}>
-            Cancelar
-          </button>
+          <Link to={'/home/'}>
+            <button type="button">Cancelar</button>
+          </Link>
         </div>
       </form>
     </>

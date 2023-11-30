@@ -1,12 +1,9 @@
 import { SyntheticEvent, useState } from 'react';
 import { useUsers } from '../../hooks/use.users';
 import './register.scss';
+import { Link } from 'react-router-dom';
 
-type Props = {
-  closeModal: () => void;
-};
-
-export function Register({ closeModal }: Props) {
+export function Register() {
   const [hasRegister, setHasRegister] = useState(false);
   const { register } = useUsers();
 
@@ -16,14 +13,6 @@ export function Register({ closeModal }: Props) {
     const formData = new FormData(formElement);
     register(formData);
     setHasRegister(true);
-    setTimeout(() => {
-      handleCloseOk();
-    }, 4000);
-  };
-
-  const handleCloseOk = () => {
-    setHasRegister(false);
-    closeModal();
   };
 
   return (
@@ -45,17 +34,17 @@ export function Register({ closeModal }: Props) {
           <label htmlFor="avatar">Avatar</label>
           <input type="file" name="avatar" id="avatar" />
           <button type="submit">Registrar</button>
-          <button type="button" onClick={handleCloseOk}>
-            Cancelar
-          </button>
+          <Link to={'/home/'}>
+            <button type="button">Cancelar</button>
+          </Link>
         </form>
       )}
       {hasRegister && (
         <div>
           <p>Registro correcto</p>
-          <button type="button" onClick={closeModal}>
-            Continuar
-          </button>
+          <Link to={'/home/'}>
+            <button type="button">Continuar</button>
+          </Link>
         </div>
       )}
     </>

@@ -1,16 +1,13 @@
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
 import { useUsers } from '../../hooks/use.users';
-import { useState } from 'react';
 import './user.buttons.scss';
-import { Login } from '../login/login';
-import { Register } from '../register/register';
 import { makeImageURL } from '../../services/images';
+import { Link } from 'react-router-dom';
 
 export function UserButtons() {
-  const [modalRegister, setModalRegister] = useState(false);
-  const [modalLogin, setModalLogin] = useState(false);
   const { loggedUser } = useSelector((state: RootState) => state.usersState);
+
   const userAvatar =
     loggedUser &&
     loggedUser.avatar &&
@@ -18,16 +15,16 @@ export function UserButtons() {
 
   const { logout } = useUsers();
 
-  const dialogs = [
-    ...document.querySelectorAll('dialog'),
-  ] as HTMLDialogElement[];
-
   return (
     <section>
       {!loggedUser && (
         <>
-          <button onClick={() => setModalRegister(true)}>Register</button>
-          <button onClick={() => setModalLogin(true)}>Login</button>
+          <Link to={'/register/'}>
+            <button>Register</button>
+          </Link>
+          <Link to={'/login/'}>
+            <button>Login</button>
+          </Link>
         </>
       )}
       {loggedUser && (
@@ -40,14 +37,6 @@ export function UserButtons() {
 
       {/* Ruta protegida del admin */}
       {loggedUser && loggedUser.role === 'Admin' && <p>Cosas de admin</p>}
-
-      <dialog open={modalRegister}>
-        <Register closeModal={() => setModalRegister(false)}></Register>
-      </dialog>
-
-      <dialog open={modalLogin}>
-        <Login closeModal={() => setModalLogin(false)}></Login>
-      </dialog>
     </section>
   );
 }
