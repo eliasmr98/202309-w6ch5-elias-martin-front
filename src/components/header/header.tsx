@@ -1,10 +1,13 @@
+import { Link } from 'react-router-dom';
 import { UserButtons } from '../user.buttons/user.buttons';
 import './header.scss';
 
 export function Header() {
   return (
     <header>
-      <h1>Godzilla Films</h1>
+      <Link to={'/home/'} style={{ textDecoration: 'none', color: 'inherit' }}>
+        <h1>Godzilla Films</h1>
+      </Link>
       <UserButtons></UserButtons>
     </header>
   );

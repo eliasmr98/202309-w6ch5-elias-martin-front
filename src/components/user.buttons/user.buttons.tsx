@@ -36,7 +36,7 @@ export function UserButtons() {
       )}
 
       {/* Ruta protegida del admin */}
-      {loggedUser && loggedUser.role === 'Admin' && <p>Cosas de admin</p>}
+      {loggedUser && loggedUser.role === 'Admin' && <p>Cuenta Admin</p>}
     </section>
   );
 }
