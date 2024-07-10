@@ -14,12 +14,14 @@ export function List() {
   }, [loadFilms]);
 
   return (
-    <div className="list-container">
-      <ul className="film-list">
-        {films.map((item) => (
-          <Card key={item.id} film={item}></Card>
-        ))}
-      </ul>
-    </div>
+    <>
+      <div className="list-container">
+        <ul className="film-list">
+          {films.map((item) => (
+            <Card key={item.id} film={item}></Card>
+          ))}
+        </ul>
+      </div>
+    </>
   );
 }
